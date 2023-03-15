@@ -1,0 +1,72 @@
+{% load static %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+{% endblock %}
+{% if request.user.is_authenticated %}
+<nav id="navbar" class="">
+  <div class="nav-wrapper">
+    <div class="logo">
+      <img src={% static 'img/logo.png' %} width="50" height="50" class="d-inline-block align-mid" alt="">
+      <a href={% url 'basics:index' %}><i class="fas fa-chess-knight"></i>GOOD TRY</a>
+    </div>
+    <ul id="menu">
+      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
+      <li><a href="{% url 'basics:index' %}">Home</a></li>
+      <li><a href="">Services</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Menu Icon -->
+<div class="menuIcon">
+  <span class="icon icon-bars"></span>
+  <span class="icon icon-bars overlay"></span>
+</div>
+
+
+<div class="overlay-menu">
+  <ul id="menu">
+      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+{% else %}
+<nav id="navbar" class="">
+  <div class="nav-wrapper">
+    <div class="logo">
+      <img src={% static 'img/logo.png' %} width="50" height="50" class="d-inline-block align-mid" alt="">
+      <a href={% url 'basics:index' %}><i class="fas fa-chess-knight"></i>GOOD TRY</a>
+    </div>
+    <ul id="menu">
+      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
+      <li><a href="{% url 'basics:index' %}">Home</a></li>
+      <li><a href="">Services</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Menu Icon -->
+<div class="menuIcon">
+  <span class="icon icon-bars"></span>
+  <span class="icon icon-bars overlay"></span>
+</div>
+
+
+<div class="overlay-menu">
+  <ul id="menu">
+      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+{% endif %}
+<script src="{% static 'js/header.js' %}"></script>

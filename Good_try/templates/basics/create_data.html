@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Новый пост{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<form method="post">
+{% csrf_token %}
+{% load user_filters %}
+{% for field in form %}
+	<div class="form-group row my-3 p-3">
+		<label for="{{ field.id_for_label }}">
+		{{ field.label }}
+		{% if field.field.required %}
+				<span class="required text-danger">*</span>
+		{% endif %}
+		</label>
+		<div>
+			{{ field|addclass:'form-control' }}
+					{% if field.help_text %}
+					<small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+							{{ field.help_text|safe }}
+					</small>
+					{% endif %}
+		</div>
+		{% if field.help_text %}
+		<small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+				{{ field.help_text|safe }}
+		</small>
+		{% endif %}
+	</div>
+	{% endfor %}
+  </div>
+  <button type="submit" class="btn btn-primary">
+    {% if is_edit %}
+      Сохранить
+    {% else %}
+      Добавить
+    {% endif %}               
+  </button> 
+</form>
+{% else %}
+  <p>404</p>
+{% endif %}
+{% endblock %}
