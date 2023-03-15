@@ -10,11 +10,9 @@
       <a href={% url 'basics:index' %}><i class="fas fa-chess-knight"></i>GOOD TRY</a>
     </div>
     <ul id="menu">
-      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
-      <li><a href="{% url 'basics:index' %}">Home</a></li>
-      <li><a href="">Services</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
+      <li><a href={% url 'basics:index' %}>Home</a></li>
+      <li><a href={% url 'basics:data_create' %}>Enter Data</a></li>
+      <li><a href={% url 'users:logout' %}>logout</a></li>
     </ul>
   </div>
 </nav>
@@ -44,10 +42,9 @@
     </div>
     <ul id="menu">
       <li><a href={% url 'basics:data_create' %}>Данные</a></li>
-      <li><a href="{% url 'basics:index' %}">Home</a></li>
-      <li><a href="">Services</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
+      <li><a href={% url 'basics:index' %}>Home</a></li>
+      <li><a href={% url 'users:login' %}>Login</a></li>
+      <li><a href={% url 'users:signup' %}>Signup</a></li>
     </ul>
   </div>
 </nav>
