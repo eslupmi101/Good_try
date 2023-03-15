@@ -1,0 +1,115 @@
+.filters_custom{
+
+}
+.filters_custom_buttons{
+
+}
+
+.filters_head{	
+    position: sticky;
+    top: 1;
+    position: absolute;
+    z-index: 1;
+    background-color: lightskyblue;
+    border-radius: 15px;
+    text-align: center;
+    left: 20%;
+    height: 10%;
+    width: 20%;
+    
+    display: flex;
+}
+.filters_buttons{
+    padding-top: 7%;
+    width: 30%;
+    margin: auto;
+    height: 90%;
+    background-color: skyblue;
+    border-color: blue;
+}
+
+.half{
+    width: 60%;
+    background-color: red;
+}
+
+.holder {
+    
+    display: flex;
+    
+    flex-wrap: wrap;
+    margin-left: 1.5%;
+    margin-top: 0px;
+}
+.main{
+    margin-top: 50px;
+}
+.map{
+    background-color: red;
+}
+.rent{
+    width: 300px;
+    height: 500px;
+    background-color: blue;
+    height: 500px;
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.price{
+    position: relative;
+    top: -35px;
+    background-color: yellow;
+    border-radius: 10px;
+    height: 55px;
+    width: 125px;
+    text-align: center;
+    overflow:hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.description{
+
+    padding: 5%;
+    background-color: yellow;
+    white-space: nowrap;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.center{
+    margin: auto;
+    height: 90%;
+    width: 90%;
+}
+.name 
+{	
+
+    vertical-align: middle;
+    border-radius: 20px;
+    position: relative;
+    background-color: green;
+    top: -20px;
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: center;
+    width: 140px;
+    height: 70px;
+    padding-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.info{
+    margin-top: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
+    display: flex;
+}
+.tag{
+    margin: auto;
+    background-color: skyblue;
+    border-radius: 10px;
+    height: 50px;
+    width: 80px;
+}

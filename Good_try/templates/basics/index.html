@@ -1,5 +1,222 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<p>dsffsdffds</p>
+<css>
+	<style type="text/css">
+		.filters_custom{
+
+		}
+		.filters_custom_buttons{
+
+		}
+
+		.filters_head{	
+			position: sticky;
+			top: 1;
+			position: absolute;
+			z-index: 1;
+			background-color: lightskyblue;
+			border-radius: 15px;
+			text-align: center;
+			left: 20%;
+			height: 10%;
+			width: 20%;
+			
+			display: flex;
+		}
+		.filters_buttons{
+			padding-top: 7%;
+			width: 30%;
+			margin: auto;
+			height: 90%;
+			background-color: skyblue;
+			border-color: blue;
+		}
+
+		.half{
+			width: 60%;
+			background-color: red;
+		}
+
+		.holder {
+			
+			display: flex;
+			
+			flex-wrap: wrap;
+			margin-left: 1.5%;
+			margin-top: 0px;
+		}
+		.main{
+			margin-top: 50px;
+		}
+		.map{
+			background-color: red;
+		}
+		.rent{
+			width: 300px;
+			height: 500px;
+			background-color: blue;
+			height: 500px;
+			margin-top: 50px;
+			margin-left: 25px;
+			margin-right: 25px;
+		}
+		.price{
+			position: relative;
+			top: -35px;
+			background-color: yellow;
+			border-radius: 10px;
+			height: 55px;
+			width: 125px;
+			text-align: center;
+			overflow:hidden; 
+    		white-space: nowrap;
+    		text-overflow: ellipsis;
+		}
+		.description{
+
+			padding: 5%;
+			background-color: yellow;
+			white-space: nowrap;
+			word-break: break-word;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.center{
+			margin: auto;
+			height: 90%;
+			width: 90%;
+		}
+		.name 
+		{	
+
+			vertical-align: middle;
+			border-radius: 20px;
+			position: relative;
+			background-color: green;
+			top: -20px;
+			margin-bottom: 20px;
+			margin: auto;
+			text-align: center;
+			width: 140px;
+			height: 70px;
+			padding-left: 5px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.info{
+			margin-top: 7px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			flex-wrap: wrap;
+			display: flex;
+		}
+		.tag{
+			margin: auto;
+			background-color: skyblue;
+			border-radius: 10px;
+			height: 50px;
+			width: 80px;
+		}
+	</style>
+</css>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<div class="filters_custom"> 
+		
+    <div class="filters_custom_buttons">
+        
+    </div>
+    <div class="filters_custom_buttons">
+        
+    </div>
+    <div class="filters_custom_buttons">
+        
+    </div>
+
+</div>
+
+<!-- Левая часть экрана за отображение обьектов-->
+<div class="half">
+
+    <div class="filters_head">
+
+        <div class="filters_buttons">
+            слоник
+        </div>
+        <div class="filters_buttons">
+            мамонт
+        </div>
+        <div class="filters_buttons">
+            динозавр
+        </div>   
+
+    </div>
+
+    <div class="holder">
+        
+        <!-- Пример обьектов для заплнения -->
+        <div class="rent">
+            <div class="center">
+                <div class="name">
+                    <p style="margin: auto;margin-top: 15%;">name</p>
+                </div>
+                <div> <!-- image -->
+                    <div>
+                        <div>
+                            
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <img src="{% static 'img/logo.png' %}" width="100%" height="100%">
+                </div>
+                <!-- price -->
+                <div class="price">
+                    <h1 style="margin: auto;margin-top: 5%;"> 1000$ </h1s>
+                </div>
+                <div style="position: relative; top: -30px;">
+                    <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                    <!--Адрес и прочие теги для поиска -->
+                    <div class="info">
+                        <div class="tag">пример тега 1</div>
+                        <div class="tag">пример тега 2</div>
+                        <div class="tag">пример тега 3</div>
+                    </div>
+                </div>
+                <!-- description -->
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="map">
+<!-- правая часть экрана за отображение карты-->
+</div>
+    
+
+</body>
+
+
+<div>
+
+</div>
+
+
+<script>
+    //пример hover на обьекте для полуения информации о нем
+    let examp = document.getElementById(example);
+
+</script>
 {% endblock %}
