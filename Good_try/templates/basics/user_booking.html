@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Бронирования{% endblock %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href={% static 'css/user_booking.css' %}>
+{% endblock %}
+{% block content %}
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12">
+      <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+        <div class="card-body p-0">
+          <div class="row g-0">
+            <div class="col-lg-8">
+              <div class="p-5">
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                  <h1 class="fw-bold mb-0 text-black">Бронирования</h1>
+                </div>
+                {% if number_data %}
+                <hr class="my-4">
+                {% for data in page_obj %}
+
+                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
+                      class="img-fluid rounded-3" alt="Cotton T-shirt">
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <h6 class="text-muted">{{ data.title }}</h6>
+                    <h6 class="text-black mb-0">{{ data.description }}</h6>
+                  </div>
+                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h6 class="mb-0">{{ data.price }} ₽</h6>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                  </div>
+                </div>
+                {% endfor %}
+                {% include 'includes/paginator.html' %}
+
+                <hr class="my-4">
+
+                <div class="pt-5">
+                  <h6 class="mb-0"><a href={% url 'basics:index' %} class="text-body"><i
+                        class="fas fa-long-arrow-alt-left me-2"></i>Вернуться в каталог</a></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 bg-grey">
+              <div class="p-5">
+                <h3 class="fw-bold mb-5 mt-2 pt-1">Итого</h3>
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="text-uppercase">Бронирований - {{ number_data }}</h5>
+
+                </div>
+
+            
+
+                <h5 class="text-uppercase mb-3">Промокод</h5>
+
+                <div class="mb-5">
+                  <div class="form-outline">
+                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Examplea2">Введите промокод</label>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between mb-5">
+                  <h5 class="text-uppercase">Общая цена</h5>
+                  <h5>{{ total_price }} ₽</h5>
+                </div>
+                <form action={% url 'basics:accept_booking' %}>
+                  <button type="sumbit" class="btn btn-dark btn-block btn-lg"
+                    data-mdb-ripple-color="dark">Подтвердить бронирования</button>
+                {% endif %}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock%}

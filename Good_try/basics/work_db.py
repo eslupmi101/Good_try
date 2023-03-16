@@ -42,7 +42,7 @@ def add_new_accommodation():
     # Считываем содержимое файла в словарь
     with open(new_accomodationjson_path, "r") as f:
         new_accomodations = json.load(f)
-    for acomm, details in new_accomodations.items():
+    for details in new_accomodations['Accoms']:
         data = Data()
         data.title = details['title']
         data.accommodation_type = details['accommodation_type']
@@ -52,7 +52,6 @@ def add_new_accommodation():
         data.price = details['price']
         data.contact_phone = details['contact_phone']
         data.contact_email = details['contact_email']
-        data.free = details['free']
         data.save()
 
 

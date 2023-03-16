@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<css>
+	<style>
+		.main{
+			background-color: skyblue;
+		}
+		.title{
+			font-size: 50px;
+			font-weight: bold;
+		}
+		.description{
+			font-size: 30px;
+			word-wrap: break-word;
+			width: 800px;
+		}
+		.text{
+			margin-left: 50px;
+		}
+		.images{
+			margin-top: 50px;
+			
+			display: flex;
+			height: 350px;
+		}
+		.placer{
+			background-color: blue;
+			display: flex;
+			flex-wrap: wrap;
+			width: 80%;
+			margin: auto;
+
+		}
+		.tag{
+			margin: auto;
+			background-color: skyblue;
+			border-radius: 10px;
+			height: 50px;
+			width: 115px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.holder{
+			background-color: yellow;
+			border-radius: 10px;
+			margin-left: 50px;
+			width: 400px;
+			min-height: 400px;
+			max-height: 600px;
+			position: sticky;
+			top: 0;
+			margin-top: 50px;
+		}
+		.price{
+			border-radius: 7px;
+			height: 75px;
+			width: 170px;
+			margin-top: 10px;
+			margin-left: 10px;
+			background-color: gold;
+		}
+		.type{
+			word-wrap: break-word;
+			margin-top: 10px;
+			margin-left: 5px;
+			height: 60px;
+			width: 200px;
+			background-color: skyblue;
+			padding-top: 12px;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.adress{
+			padding-left: 10px;
+			font-size: 25px;
+			display: flex;
+		}
+		.purchase{
+			top: 60px;
+			position: relative;
+			border-radius: 20px;
+			font-size: 30px;
+			margin: auto;
+			width: 210px;
+			height: 100px;
+			text-align: center;
+			font-weight: bold;
+			padding-top: 10px;
+			background-color: grey;
+		}
+	</style>
+
+</css>
+{% endblock %}
+
+{% block content %}
+<body class="main">
+	<div class="placer">
+		<div class="holder">
+			<div>
+				<div style="display: flex;">
+					<div class="price">
+						<h1 style="padding-left: 5px;">10000000$</h1>
+					</div>
+					<div class="type">
+						ACCOMONDATION
+					</div>
+				</div>
+
+				<div class="adress">
+					<p>
+						тут переменная адреса
+					</p>
+				</div>
+				<div class="adress">
+					<p>
+						тут переменная почты
+					</p>
+				</div>
+				<div class="adress">
+					<p>
+						тут переменная телефна
+					</p>
+				</div>
+				
+				<div style="display: flex; flex-wrap: wrap">
+					
+					<div class="tag">
+					тег 1
+					</div>
+					<div class="tag">
+						тег 2
+					</div>
+					<div class="tag">
+						тег 3
+					</div>
+
+				</div>
+
+				<div class="purchase">
+					<p>Purchase</p>
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="text">
+			<!-- Главная картинка-->
+			<div class="images">
+				<img src="..." style="height: 350px; width: 350px; background-color: yellow;">
+				<div style="display: grid;">
+					<img src="..." style="height: 175px; width: 175px; background-color: grey;">
+					<img src="..." style="height: 175px; width: 175px; background-color: gold;">
+				</div>
+					
+				
+			</div>
+			
+
+			
+			
+			<div class="title" >
+				Название
+			</div>
+			<div class="description">
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+
+
+		</div>
+	</div>
+	
+	<div>
+		
+	</div>
+	<div>
+		
+	</div>
+</body>
+
+<script>
+	
+</script>
+
+{% endblock %}

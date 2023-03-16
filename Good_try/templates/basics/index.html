@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
+{% block style %}
 <css>
 	<style type="text/css">
 		.filters_custom{
@@ -124,6 +124,8 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
+{% endblock %}
+{% block content %}
 <div class="filters_custom"> 
 		
     <div class="filters_custom_buttons">
@@ -156,12 +158,12 @@
     </div>
 
     <div class="holder">
-        
+        {% for data in data_obj %}
         <!-- Пример обьектов для заплнения -->
         <div class="rent">
             <div class="center">
                 <div class="name">
-                    <p style="margin: auto;margin-top: 15%;">name</p>
+                    <p style="margin: auto;margin-top: 15%;">{{ data.title }}</p>
                 </div>
                 <div> <!-- image -->
                     <div>
@@ -176,20 +178,15 @@
                 </div>
                 <!-- price -->
                 <div class="price">
-                    <h1 style="margin: auto;margin-top: 5%;"> 1000$ </h1s>
+                    <h1 style="margin: auto;margin-top: 5%;"> {{ data.price }} руб. </h1s>
                 </div>
                 <div style="position: relative; top: -30px;">
                     <div class="description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {{ data.description }}
                     </div>
                     <!--Адрес и прочие теги для поиска -->
                     <div class="info">
-                        <div class="tag">пример тега 1</div>
+                        <div class="tag">{{ data.accommodation_type }}</div>
                         <div class="tag">пример тега 2</div>
                         <div class="tag">пример тега 3</div>
                     </div>
@@ -199,6 +196,9 @@
             </div>
             
         </div>
+	{% if not forloop.last %}<hr>{% endif %}
+	{% endfor %}
+
     </div>
 </div>
 <div class="map">

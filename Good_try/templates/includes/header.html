@@ -6,13 +6,14 @@
 <nav id="navbar" class="">
   <div class="nav-wrapper">
     <div class="logo">
-      <img src={% static 'img/logo.png' %} width="50" height="50" class="d-inline-block align-mid" alt="">
-      <a href={% url 'basics:index' %}><i class="fas fa-chess-knight"></i>GOOD TRY</a>
+      <img src={% static 'img/logo.png' %} width="50" height="50" class="d-inline-block align-top" alt="">
+      <a href="{% url 'basics:index' %}"><i class="fas fa-chess-knight align-bottom"></i>ARCTIC BEDS</a>
     </div>
     <ul id="menu">
-      <li><a href={% url 'basics:index' %}>Home</a></li>
-      <li><a href={% url 'basics:data_create' %}>Enter Data</a></li>
-      <li><a href={% url 'users:logout' %}>logout</a></li>
+      <li><a href={% url 'basics:index' %}>Каталог</a></li>
+      <li><a href={% url 'basics:application_rent' %}>Не нашли жилье?</a></li>
+      <li><a href={% url 'basics:user_booking' request.user.username %}>Бронирования</a></li>
+      <li><a href={% url 'users:logout' %}>Выйти</a></li>
     </ul>
   </div>
 </nav>
@@ -27,24 +28,23 @@
 
 <div class="overlay-menu">
   <ul id="menu">
-      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href={% url 'basics:index' %}>Каталог</a></li>
+      <li><a href={% url 'basics:application_rent' %}>Не нашли жилье?</a></li>
+      <li><a href={% url 'basics:user_booking' request.user.username %}>Бронирования</a></li>
+      <li><a href={% url 'users:logout' %}>Выйти</a></li>
     </ul>
 </div>
 {% else %}
 <nav id="navbar" class="">
   <div class="nav-wrapper">
     <div class="logo">
-      <img src={% static 'img/logo.png' %} width="50" height="50" class="d-inline-block align-mid" alt="">
-      <a href={% url 'basics:index' %}><i class="fas fa-chess-knight"></i>GOOD TRY</a>
+      <img src={% static 'img/logo.png' %} width="50" height="50" class="d-inline-block align-top" alt="">
+      <a href={% url 'basics:index' %}><i class="fas fa-chess-knight"></i>ARCTIC BEDS</a>
     </div>
     <ul id="menu">
-      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
-      <li><a href={% url 'basics:index' %}>Home</a></li>
-      <li><a href={% url 'users:login' %}>Login</a></li>
-      <li><a href={% url 'users:signup' %}>Signup</a></li>
+      <li><a href={% url 'basics:index' %}>Каталог</a></li>
+      <li><a href={% url 'users:login' %}>Войти</a></li>
+      <li><a href={% url 'users:signup' %}>Регистрация</a></li>
     </ul>
   </div>
 </nav>
@@ -59,10 +59,9 @@
 
 <div class="overlay-menu">
   <ul id="menu">
-      <li><a href={% url 'basics:data_create' %}>Данные</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href={% url 'basics:index' %}>Каталог</a></li>
+      <li><a href={% url 'users:login' %}>Логин</a></li>
+      <li><a href={% url 'users:signup' %}>Регистрация</a></li>
     </ul>
 </div>
 {% endif %}

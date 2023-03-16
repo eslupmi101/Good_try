@@ -22,7 +22,7 @@ class Data(models.Model):
     address = models.CharField(max_length=100, null=True, blank=True)
     contact_phone = models.CharField(max_length=100, null=True, blank=True)
     contact_email = models.CharField(max_length=100, null=True, blank=True)
-    free = models.BooleanField(null=True, blank=True)
+    free = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-pub_date']
