@@ -119,5 +119,6 @@ def profile_rent(request, data_id):
 def booking_accomodation(request, accom_id):
     data_list = Data.objects.filter(pk=accom_id, free=True)
     for data in data_list:
+        data.customer = request.user
         data.save()
-    profile_rent(request, accom_id)
+    return profile_rent(request, accom_id)

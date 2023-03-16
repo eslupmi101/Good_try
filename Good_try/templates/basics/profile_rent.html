@@ -4,7 +4,6 @@
 <css>
 	<style>
 		.main{
-			background-color: skyblue;
 		}
 		.title{
 			font-size: 50px;
@@ -13,62 +12,69 @@
 		.description{
 			font-size: 30px;
 			word-wrap: break-word;
-			width: 800px;
+			max-width: 600px;
+
 		}
 		.text{
 			margin-left: 50px;
 		}
 		.images{
 			margin-top: 50px;
-			
 			display: flex;
-			height: 350px;
+			height: 20vw;
 		}
 		.placer{
-			background-color: blue;
+			background-color: #f5f5f5;
 			display: flex;
 			flex-wrap: wrap;
-			width: 80%;
+			width: 85%;
 			margin: auto;
 
 		}
 		.tag{
 			margin: auto;
-			background-color: skyblue;
+			background-color: #3842cf;
+			text-align: center;
+			vertical-align: middle;
+			padding-top: 10px;
 			border-radius: 10px;
 			height: 50px;
 			width: 115px;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			color: white;
+			border: 1px solid #171f82;
 		}
 		.holder{
-			background-color: yellow;
-			border-radius: 10px;
-			margin-left: 50px;
+			border: 1px solid black;
+			background-color: white;
+			border-radius: 30px;
+			margin-left: 10px;
 			width: 400px;
-			min-height: 400px;
-			max-height: 600px;
+			height: 500px;
 			position: sticky;
-			top: 0;
-			margin-top: 50px;
+			top: 60px;
+			margin-top: 10%;
 		}
 		.price{
 			border-radius: 7px;
-			height: 75px;
+			height: 60px;
 			width: 170px;
 			margin-top: 10px;
 			margin-left: 10px;
-			background-color: gold;
+			background-color: white;
+			border: 1px solid #808080;
 		}
 		.type{
+
 			word-wrap: break-word;
 			margin-top: 10px;
 			margin-left: 5px;
 			height: 60px;
 			width: 200px;
-			background-color: skyblue;
-			padding-top: 12px;
-			font-size: 30px;
+			padding-top: 20px;
+			padding-left: 5px;
+			font-size: 20px;
 			font-weight: bold;
 		}
 		.adress{
@@ -81,13 +87,40 @@
 			position: relative;
 			border-radius: 20px;
 			font-size: 30px;
+			color: white;
 			margin: auto;
-			width: 210px;
+			width: 250px;
 			height: 100px;
 			text-align: center;
+
 			font-weight: bold;
-			padding-top: 10px;
-			background-color: grey;
+			padding-top: 25px;
+			background-color: black;
+		}
+		.img{
+			height: 20vw; width: 20vw; background-color: yellow; position: static;
+		}
+		.img1{
+			height: 10vw; width: 10vw; background-color: gold; position: static;
+		}
+		.img:hover{
+			position: absolute;
+			left: 0;
+  			right: 0;
+  			top: 0;
+  			bottom: 0;
+  			margin: auto;
+			height: 40vw; width: 40vw;
+		}
+		.img1:hover{
+			position: absolute;
+			left: 0;
+  			right: 0;
+  			top: 0;
+  			bottom: 0;
+  			margin: auto;
+  			
+			height: 40vw; width: 40vw;
 		}
 	</style>
 
@@ -101,46 +134,35 @@
 			<div>
 				<div style="display: flex;">
 					<div class="price">
-						<h1 style="padding-left: 5px;">10000000$</h1>
+						<h1 style="padding-left: 5px; padding-top: 10px; font-size: 30px;">{{data.price}} ₽</h1>
 					</div>
 					<div class="type">
-						ACCOMONDATION
+					  {{data.accommodation_type}}
 					</div>
 				</div>
 
 				<div class="adress">
 					<p>
-						тут переменная адреса
+						Адрес {{data.address}}
 					</p>
 				</div>
 				<div class="adress">
 					<p>
-						тут переменная почты
+					  mail {{data.contact_email}}
 					</p>
 				</div>
 				<div class="adress">
 					<p>
-						тут переменная телефна
+						Телефон {{data.contact_phone}}
 					</p>
 				</div>
-				
-				<div style="display: flex; flex-wrap: wrap">
-					
-					<div class="tag">
-					тег 1
-					</div>
-					<div class="tag">
-						тег 2
-					</div>
-					<div class="tag">
-						тег 3
-					</div>
 
-				</div>
-
-				<div class="purchase">
-					<p>Purchase</p>
-				</div>
+				{% if request.user.is_authenticated %}
+				<form action={% url 'basics:booking_accomodation' data.pk %}>
+                    <button type="sumbit" class="btn btn-dark btn-block btn-lg"
+                      data-mdb-ripple-color="dark">Забронировать</button>
+				</form>
+				{% endif %}
 			</div>
 			
 			
@@ -148,11 +170,7 @@
 		<div class="text">
 			<!-- Главная картинка-->
 			<div class="images">
-				<img src="..." style="height: 350px; width: 350px; background-color: yellow;">
-				<div style="display: grid;">
-					<img src="..." style="height: 175px; width: 175px; background-color: grey;">
-					<img src="..." style="height: 175px; width: 175px; background-color: gold;">
-				</div>
+				<img src={% static 'img/logo1.png' %} style="" class="img">
 					
 				
 			</div>
@@ -161,45 +179,11 @@
 			
 			
 			<div class="title" >
-				Название
+			  {{ data.title }}
 			</div>
 			<div class="description">
-				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			  {{ data.description }}
+				 
 			</div>
 
 

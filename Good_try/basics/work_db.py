@@ -1,7 +1,8 @@
-import os
 import json
-
 from .models import Data
+
+
+n_acc_dir = '/Users/ajsenandreev/home/pet_projects/MPIT/test1/Good_try/Good_try/new_accomodation.json'
 
 
 def update_accomodation():
@@ -10,38 +11,31 @@ def update_accomodation():
         clean_json()
 
 
+def get_data():
+    res = None
+    try:
+        with open(n_acc_dir) as f:
+            data = json.load(f)
+            f.close()
+        res = data
+    finally:
+        return res
+
+
 def is_new_accommodation() -> bool:
-    """
-    Функция для проверки, является ли файл new_accomodation.json пустым в предыдущей папке.
-    :return: True, если файл пустой, и False, если файл содержит данные.
-    """
-    # Получаем путь к текущей директории и предыдущей директории
-    current_dir = os.path.abspath(os.path.dirname(__file__))
-    parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
-
-    # Получаем путь к файлу new_accomodation.json в предыдущей директории
-    new_accomodationjson_path = os.path.join(parent_dir, "new_accomodation.json")
-
-    # Проверяем, пустой ли файл
-    with open(new_accomodationjson_path, "r") as f:
-        data = json.load(f)
-        if data:
+    # if true then there are accomodations to add to website
+    data = get_data()
+    if data is None:
+        Exception('cant read new accomodation json')
+    else:
+        acc_list = data['Accoms']
+        if len(acc_list) > 0:
             return True
-        else:
-            return False
+        return False
 
 
 def add_new_accommodation():
-    current_dir = os.path.abspath(os.path.dirname(__file__))
-    parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
-
-    # Получаем путь к файлу new_accomodation.json в предыдущей директории
-    new_accomodationjson_path = os.path.join(parent_dir,
-                                             "new_accomodation.json")
-
-    # Считываем содержимое файла в словарь
-    with open(new_accomodationjson_path, "r") as f:
-        new_accomodations = json.load(f)
+    new_accomodations = get_data()
     for details in new_accomodations['Accoms']:
         data = Data()
         data.title = details['title']
@@ -56,13 +50,15 @@ def add_new_accommodation():
 
 
 def clean_json():
-    current_dir = os.path.abspath(os.path.dirname(__file__))
-    parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
-
-    # Получаем путь к файлу new_accomodation.json в предыдущей директории
-    new_accomodationjson_path = os.path.join(parent_dir,
-                                             "new_accomodation.json")
-
-    # Очищаем содержимое файла
-    with open(new_accomodationjson_path, "w") as f:
-        json.dump({}, f)
+    data = get_data()
+    res = False
+    if data is None:
+        return False
+    try:
+        data['Accoms'].clear()
+        with open(n_acc_dir, 'w') as f:
+            json.dump(data, f)
+            f.close()
+        res = True
+    finally:
+        return res

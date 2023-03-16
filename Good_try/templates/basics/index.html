@@ -9,18 +9,27 @@
 		.filters_custom_buttons{
 
 		}
+		.clicker{
+			z-index: 1;
+			width: 300px;
+			height: 350px;
+			position: absolute;
+
+		}
 
 		.filters_head{	
 			position: sticky;
 			top: 1;
-			position: absolute;
 			z-index: 1;
-			background-color: lightskyblue;
+			font-weight: bold;
+			color: white;
+			border: 1px solid white;
+			background-color: #3842cf;
 			border-radius: 15px;
 			text-align: center;
-			left: 20%;
-			height: 10%;
-			width: 20%;
+			margin: auto;
+			height: 70px;
+			width: 25%;
 			
 			display: flex;
 		}
@@ -29,13 +38,12 @@
 			width: 30%;
 			margin: auto;
 			height: 90%;
-			background-color: skyblue;
-			border-color: blue;
+			border-color: #171f82;
 		}
 
 		.half{
-			width: 60%;
-			background-color: red;
+			background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(222,235,255,1) 62%, rgba(119,210,250,1) 100%);
 		}
 
 		.holder {
@@ -48,35 +56,42 @@
 		}
 		.main{
 			margin-top: 50px;
+			font-family: sans-serif;
 		}
 		.map{
-			background-color: red;
+			position: sticky;
+			background-color: #509afa;
 		}
 		.rent{
+			box-shadow: 3px 3px #808080;
 			width: 300px;
 			height: 500px;
-			background-color: blue;
+			background-color: white;
+			border-radius: 30px;
 			height: 500px;
-			margin-top: 50px;
-			margin-left: 25px;
-			margin-right: 25px;
+			margin-top: 40px;
+			margin-left: 12px;
+			margin-right: 12px;
 		}
 		.price{
+			font-size: 20px;
 			position: relative;
 			top: -35px;
-			background-color: yellow;
+			background-color:  white;
 			border-radius: 10px;
 			height: 55px;
-			width: 125px;
+			width: 145px;
 			text-align: center;
 			overflow:hidden; 
     		white-space: nowrap;
     		text-overflow: ellipsis;
+			border: 1px solid #808080;
+			padding-top: 4px;
 		}
 		.description{
-
+			border: 1px solid #808080;
 			padding: 5%;
-			background-color: yellow;
+			background-color:  white;
 			white-space: nowrap;
 			word-break: break-word;
 			overflow: hidden;
@@ -93,7 +108,8 @@
 			vertical-align: middle;
 			border-radius: 20px;
 			position: relative;
-			background-color: green;
+			background-color: white;
+
 			top: -20px;
 			margin-bottom: 20px;
 			margin: auto;
@@ -112,9 +128,16 @@
 			display: flex;
 		}
 		.tag{
+			color: white;
+			border: 1px solid #171f82;
+			overflow: hidden;
+			text-overflow: ellipsis;
 			margin: auto;
-			background-color: skyblue;
-			border-radius: 10px;
+			text-align: center;
+			vertical-align: middle;
+			background-color: #3842cf;
+			border-radius: 50px;
+			padding-top: 10px;
 			height: 50px;
 			width: 80px;
 		}
@@ -126,6 +149,8 @@
 </head>
 {% endblock %}
 {% block content %}
+
+<body>
 <div class="filters_custom"> 
 		
     <div class="filters_custom_buttons">
@@ -139,20 +164,20 @@
     </div>
 
 </div>
-
+<div class="main">
 <!-- Левая часть экрана за отображение обьектов-->
 <div class="half">
 
     <div class="filters_head">
 
         <div class="filters_buttons">
-            слоник
+            участок
         </div>
         <div class="filters_buttons">
-            мамонт
+            квартира
         </div>
         <div class="filters_buttons">
-            динозавр
+            номер
         </div>   
 
     </div>
@@ -161,9 +186,12 @@
         {% for data in data_obj %}
         <!-- Пример обьектов для заплнения -->
         <div class="rent">
+        	<div class="clicker" > 
+        		
+        	</div>
             <div class="center">
-                <div class="name">
-                    <p style="margin: auto;margin-top: 15%;">{{ data.title }}</p>
+                <div class="name" >
+                    <a style="margin: auto;margin-top: 15%;"  href={% url 'basics:profile_rent' data.pk %}>{{ data.title }}</p>
                 </div>
                 <div> <!-- image -->
                     <div>
@@ -174,11 +202,11 @@
                             
                         </div>
                     </div>
-                    <img src="{% static 'img/logo.png' %}" width="100%" height="100%">
+                    <img src="{% static 'img/logo1.png' %}" width="100%" height="100%" style="border: 1px solid #808080;; border-radius: 5px;">
                 </div>
                 <!-- price -->
                 <div class="price">
-                    <h1 style="margin: auto;margin-top: 5%;"> {{ data.price }} руб. </h1s>
+                    <p style="margin: auto;margin-top: 5%;"> {{ data.price }} руб. </p>
                 </div>
                 <div style="position: relative; top: -30px;">
                     <div class="description">
@@ -186,9 +214,9 @@
                     </div>
                     <!--Адрес и прочие теги для поиска -->
                     <div class="info">
-                        <div class="tag">{{ data.accommodation_type }}</div>
-                        <div class="tag">пример тега 2</div>
-                        <div class="tag">пример тега 3</div>
+                        <div class="tag"> <p>{{ data.accommodation_type }} </p></div>
+                        <div class="tag">	<p>{{ data.accommodation_type }} </p></div>
+                        <div class="tag">	<p>{{ data.accommodation_type }} </p></div>
                     </div>
                 </div>
                 <!-- description -->
@@ -201,8 +229,8 @@
 
     </div>
 </div>
-<div class="map">
-<!-- правая часть экрана за отображение карты-->
+
+
 </div>
     
 
@@ -214,9 +242,5 @@
 </div>
 
 
-<script>
-    //пример hover на обьекте для полуения информации о нем
-    let examp = document.getElementById(example);
-
-</script>
+<!--<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3a5c3e1f4001e07e2ec85060d318c8c6b297353e67155f80d48ccdde4671af99&amp;width=700&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script> -->
 {% endblock %}
